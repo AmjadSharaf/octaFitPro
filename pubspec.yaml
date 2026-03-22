@@ -37,6 +37,7 @@ dependencies:
   dio: ^5.9.2
   flutter_svg: ^2.2.3
   image_background_remover: ^2.0.0
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:

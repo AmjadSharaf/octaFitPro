@@ -11,7 +11,7 @@ class SplashView extends StatelessWidget {
       backgroundColor: AppColorsDark.primaryColor,
       body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Gap(180),
             SizedBox(height: 120),
