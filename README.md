@@ -1,13 +1,13 @@
 # OctaFitPro Admin Dashboard
 
 لوحة تحكم احترافية لإدارة نظام تدريب عن بعد  **Octa fit pro**.
-تُمكّن الأدمن من إدارة السائقين والطلبات والمطاعم ومتابعة الأداء عبر تقارير يومية وشهرية.
+تُمكّن الأدمن من إدارة المتدربين والمدربين والمتجر ومتابعة الأداء عبر تقارير يومية وشهرية.
 
 ---
 
 ## 📌 Project Overview
 
-**Maadati Admin Dashboard** هو نظام إدارة مخصص لمنصة تدريب عن بعد  Maadati.
+**OctaFitPro Admin Dashboard** هو نظام إدارة مخصص لمنصة تدريب عن بعد  OctaFitPro.
 يوفر أدوات متقدمة لمتابعة المتدربين والطلبات وإدارة العمليات اليومية.
 
 ### ✨ Features
@@ -50,8 +50,8 @@
 ### إنشاء Feature Branch
 
 ```
-git checkout develop
-git checkout -b feature/driver-report
+git checkout OCtaFitProFlutter 
+git checkout -b OCtaFitProFlutter
 ```
 
 ---
@@ -60,11 +60,11 @@ git checkout -b feature/driver-report
 
 ```
 git add .
-git commit -m "Add driver monthly report"
-git push origin feature/driver-report
+git commit -m "Add  monthly report"
+git push origin OCtaFitProFlutter
 ```
 
-بعدها يتم إنشاء **Pull Request** ودمجها مع `develop`.
+بعدها يتم إنشاء **Pull Request** ودمجها مع `OCtaFitPro`.
 
 
 
