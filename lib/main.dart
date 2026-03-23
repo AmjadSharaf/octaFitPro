@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:octafitpro/features/auth/view/login_view.dart';
-import 'package:octafitpro/features/auth/view/sinup_view.dart';
 
-import 'package:octafitpro/splash_view.dart';
+
+import 'package:octafitpro/root.dart';
+
+
 
 import 'core/global/them/theme_data_dark.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: getthemDataDark(),
-      home: SinupView(),
+      home: Root(),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:octafitpro/shared/custom_text.dart';
 
 class CustomTxtfield extends StatefulWidget {
   const CustomTxtfield({
@@ -69,7 +68,6 @@ class _CustomTxtfieldState extends State<CustomTxtfield> {
                 )
               : null,
           enabledBorder: OutlineInputBorder(
-            
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide(color: Colors.grey, width: 0.4),
           ),
