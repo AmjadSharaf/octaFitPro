@@ -2,9 +2,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:octafitpro/core/global/color/app_colors_dark.dart';
 import 'package:octafitpro/features/cart/view/cart_view.dart';
-
 import '../../../shared/custom_text.dart';
 
 class CardItem extends StatelessWidget {
@@ -15,103 +13,146 @@ class CardItem extends StatelessWidget {
     required this.desc,
     required this.rate,
   });
-  final String image, text, desc, rate;
+
+  final String image, text, desc;
+  final double rate;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 20, sigmaY: 500),
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xff0f1b3d), Color(0xff16244f), Color(0xff1c2e63)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+      child: Stack(
+        children: [
+          // Background Gradient
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xff0f1b3d),
+                  Color(0xff16244f),
+                  Color(0xff1c2e63),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(8),
+
+          // Glass effect
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(color: Colors.white.withOpacity(0.03)),
+          ),
+
+          // Content
+          Padding(
+            padding: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      left: 0,
-                      child: Text(""),
-                      // child: Image.asset(
-                      //   'assets/test/test.png',
-                      //   color: Colors.black26,
-                      // ),
-                    ),
-                    Center(child: Image.asset(image, width: 130, height: 135)),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                // Image + overlay
+                Expanded(
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
                     children: [
-                      CustomText(
-                        text: text,
-                        fontWeight: FontWeight.bold,
-                        size: 13,
-                        color: Colors.white,
-                      ),
-                      CustomText(
-                        text: desc,
-                        size: 10,
-                        color: Color(0xffff7a3c),
-                      ),
-                      Gap(10),
-                      Row(
-                        children: [
-                          Icon(
-                            CupertinoIcons.star_fill,
-                            size: 16,
-                            color: Color(0xffff7a3c),
+                      Image.asset(image, fit: BoxFit.contain),
+
+                      // Gradient overlay على الصورة
+                      Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.transparent,
+                              Colors.black.withOpacity(0.4),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
                           ),
-                          Gap(6),
-                          CustomText(
-                            text: rate,
-                            size: 15,
-                            fontWeight: FontWeight.bold,
-                            color: AppColorsDark.primaryColor,
-                          ),
-                          Spacer(),
-                          InkWell(
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (c) => CartView()),
-                            ),
-                            child: Container(
-                              width: 40,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Color(0xffff7a3c),
-                              ),
-                              child: Icon(
-                                CupertinoIcons.add,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
                 ),
+
+                Gap(8),
+
+                // Title
+                CustomText(
+                  text: text,
+                  fontWeight: FontWeight.bold,
+                  size: 16,
+                  color: Colors.white,
+                ),
+
+                Gap(6),
+
+                // Rating
+                Row(
+                  children: [
+                    Icon(
+                      CupertinoIcons.star_fill,
+                      size: 14,
+                      color: Color(0xffff7a3c),
+                    ),
+                    Gap(5),
+                    CustomText(
+                      text: "$rate",
+                      size: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+
+                Gap(6),
+
+                // Price + Add button
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomText(
+                      text: "\$ $desc",
+                      size: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xffff7a3c),
+                    ),
+
+                    GestureDetector(
+                      // borderRadius: BorderRadius.circular(12),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (c) => CartView()),
+                      ),
+                      child: Container(
+                        width: 36,
+                        height: 36,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          gradient: LinearGradient(
+                            colors: [Color(0xffff7a3c), Color(0xffffb36b)],
+                          ),
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: Color(0xffff7a3c).withOpacity(0.4),
+                          //     blurRadius: 8,
+                          //     offset: Offset(0, 4),
+                          //   ),
+                          // ],
+                        ),
+                        child: Icon(
+                          CupertinoIcons.add,
+                          color: Colors.white,
+                          size: 18,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }

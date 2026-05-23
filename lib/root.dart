@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:octafitpro/core/global/color/app_colors_dark.dart';
 import 'package:octafitpro/features/auth/view/profile_view.dart';
 import 'package:octafitpro/features/cart/view/cart_view.dart';
+import 'package:octafitpro/features/chat_bot/view/chat_bot.dart';
 import 'package:octafitpro/features/home/view/home_view.dart';
 import 'package:octafitpro/features/store/view/store_view.dart';
 import 'package:octafitpro/features/training/view/training_view.dart';
@@ -27,6 +28,7 @@ class _RootState extends State<Root> {
       StoreView(),
       CartView(),
       ProfileView(),
+      ChatBotScreen(),
     ];
     pageController = PageController(initialPage: currentIndex);
     super.initState();
@@ -89,6 +91,10 @@ class _RootState extends State<Root> {
             BottomNavigationBarItem(
               icon: Icon(Icons.person_2_outlined),
               label: 'Profile',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat_bubble_outline),
+              label: 'Chat bot',
             ),
           ],
         ),

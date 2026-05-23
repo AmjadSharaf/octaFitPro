@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:octafitpro/root.dart';
 
-
-
 import 'core/global/them/theme_data_dark.dart';
 
 void main() {

@@ -95,7 +95,7 @@ class _HomeViewState extends State<TrainingView> {
                       image: "assets/test/test.png",
                       text: "text",
                       desc: "desc",
-                      rate: "rate",
+                      rate: 4.5,
                     ),
                   );
                 }),

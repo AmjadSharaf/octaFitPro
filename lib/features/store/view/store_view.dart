@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:gap/gap.dart';
 import 'package:octafitpro/core/global/color/app_colors_dark.dart';
+import 'package:octafitpro/features/product/view/product_detls_view.dart';
 import 'package:octafitpro/features/store/widget/FoodCategory.dart';
 import 'package:octafitpro/features/store/widget/card_item.dart';
 import 'package:octafitpro/features/store/widget/search_field.dart';
@@ -74,7 +75,7 @@ class _HomeViewState extends State<StoreView> {
 
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
+                  padding: const EdgeInsets.only(left: 15, right: 15),
 
                   child: Column(
                     children: [
@@ -103,15 +104,15 @@ class _HomeViewState extends State<StoreView> {
                     index,
                   ) {
                     return GestureDetector(
-                      // onTap: () => Navigator.push(
-                      // context,
-                      // MaterialPageRoute(builder: (c) => ProductDetView()),
-                      // ),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (c) => ProductDetlsView()),
+                      ),
                       child: CardItem(
                         image: "assets/test/test.jpg",
                         text: "text",
-                        desc: "desc",
-                        rate: "rate",
+                        desc: "20 ",
+                        rate: 4.5,
                       ),
                     );
                   }),

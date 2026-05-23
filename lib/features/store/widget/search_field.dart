@@ -8,23 +8,24 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 60,
       child: TextField(
-        
         cursorHeight: 15,
         decoration: InputDecoration(
           filled: true,
           contentPadding: EdgeInsets.zero,
-          hintText: 'Search..',
-          fillColor: Colors.transparent,
+          hintText: 'Search.. ',
+          iconColor: AppColorsDark.primaryColor,
+
+          fillColor: Colors.white,
           prefixIcon: Icon(CupertinoIcons.search, size: 18),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(color: AppColorsDark.primaryColor),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
-            borderSide: BorderSide(color: Colors.black),
+            borderSide: BorderSide(color: Colors.white),
           ),
         ),
       ),

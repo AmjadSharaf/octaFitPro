@@ -11,7 +11,7 @@ class UserHeader extends StatelessWidget {
     return Row(
       children: [
         CustomText(
-          text: "Store",
+          text: "Store ",
           size: 40,
           fontWeight: FontWeight.bold,
           color: Colors.white,
