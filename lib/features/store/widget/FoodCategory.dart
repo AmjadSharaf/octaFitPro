@@ -10,9 +10,11 @@ class FoodCategory extends StatefulWidget {
     super.key,
     required this.selectedIndex,
     required this.category,
+    required this.onTap,
   });
   final int selectedIndex;
   final List category;
+  final Function(int) onTap;
 
   @override
   State<FoodCategory> createState() => _FoodCategoryState();

@@ -5,6 +5,8 @@ import 'package:octafitpro/core/global/color/app_colors_dark.dart';
 import 'package:octafitpro/features/chat_bot/view/chat_bot.dart';
 import 'package:octafitpro/features/product/view/widget/area_contaenar_prudect.dart';
 import 'package:octafitpro/features/product/view/widget/area_det_proudact.dart';
+import 'package:octafitpro/shared/custom_button.dart';
+import 'package:octafitpro/shared/custom_button_add.dart';
 
 import 'package:octafitpro/shared/custom_text.dart';
 
@@ -179,6 +181,15 @@ class _ProductDetlsViewState extends State<ProductDetlsView> {
                 title: "Alex Johnson",
               ),
               Gap(10),
+
+              CustomButtonAdd(
+                widget: Icon(Icons.shopping_cart_outlined, color: Colors.white),
+                text: "Add to Cart",
+                color: Colors.orange,
+                onTap: () {},
+                radius: 10,
+                gap: 5,
+              ),
             ],
           ),
         ),
