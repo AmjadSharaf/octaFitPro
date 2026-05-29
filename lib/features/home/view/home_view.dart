@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:octafitpro/core/global/color/app_colors_dark.dart';
-import 'package:octafitpro/features/home/widget/fitness_card.dart';
+
 import 'package:octafitpro/features/home/widget/fitness_card_image.dart';
 import 'package:octafitpro/features/home/widget/mixed_martial_art_card.dart';
 import 'package:octafitpro/features/home/widget/title_see_all.dart';
@@ -11,7 +11,7 @@ import 'package:octafitpro/features/home/widget/user_heder_home.dart';
 import 'package:octafitpro/features/store/view/store_view.dart';
 
 import 'package:octafitpro/features/store/widget/search_field.dart';
- 
+import 'package:octafitpro/features/training/view/training_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -77,12 +77,26 @@ class HomeView extends StatelessWidget {
                     TitleSeeAll(
                       text: "Mixed Martial Art",
                       seeAll: "See All",
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TrainingView(),
+                          ),
+                        );
+                      },
                     ),
 
                     Gap(15),
                     MixedMartialArtCard(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TrainingView(),
+                          ),
+                        );
+                      },
                       title: "Muay thai Training",
                       description: "Get stronger with Muay thai workouts",
                       imageUrl: "assets/test/test.jpg",
@@ -90,13 +104,31 @@ class HomeView extends StatelessWidget {
 
                     Gap(15),
                     MixedMartialArtCard(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TrainingView(),
+                          ),
+                        );
+                      },
                       title: "Muay thai Training",
                       description: "Get stronger with Muay thai workouts",
                       imageUrl: "assets/test/test.jpg",
                     ),
 
-                    TitleSeeAll(text: "Fitness ", seeAll: "See All"),
+                    TitleSeeAll(
+                      text: "Fitness ",
+                      seeAll: "See All",
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TrainingView(),
+                          ),
+                        );
+                      },
+                    ),
 
                     Gap(15),
                     FitnessCardImage(),

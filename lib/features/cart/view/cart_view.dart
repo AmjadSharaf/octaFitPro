@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:octafitpro/features/cart/chekout_view.dart';
+import 'package:octafitpro/features/cart/server/cart_service.dart';
 
 class CartView extends StatefulWidget {
   const CartView({super.key});
@@ -12,39 +13,39 @@ class CartView extends StatefulWidget {
 }
 
 class _CartViewState extends State<CartView> {
-  List cartItems = [
-    {
-      "title": "Premium Whey Protein",
-      "price": 49.99,
-      "qty": 2,
-      "image": "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f",
-    },
+  // List cartItems = [
+    // {
+    //   "title": "Premium Whey Protein",
+    //   "price": 49.99,
+    //   "qty": 2,
+    //   "image": "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f",
+    // },
 
-    {
-      "title": "Boxing Gloves Pro",
-      "price": 89.99,
-      "qty": 1,
-      "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
-    },
+    // {
+    //   "title": "Boxing Gloves Pro",
+    //   "price": 89.99,
+    //   "qty": 1,
+    //   "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
+    // },
 
-    {
-      "title": "Resistance Bands Set",
-      "price": 29.99,
-      "qty": 1,
-      "image": "https://images.unsplash.com/photo-1518611012118-696072aa579a",
-    },
-  ];
+    // {
+    //   "title": "Resistance Bands Set",
+    //   "price": 29.99,
+    //   "qty": 1,
+    //   "image": "https://images.unsplash.com/photo-1518611012118-696072aa579a",
+    // },
+  // ];
+final cartItems = CartService().items;
+  // double get totalPrice {
+  //   double total = 0;
 
-  double get totalPrice {
-    double total = 0;
+  //   for (var item in cartItems) {
+  //     total += item["price"] * item["qty"];
+  //   }
 
-    for (var item in cartItems) {
-      total += item["price"] * item["qty"];
-    }
-
-    return total;
-  }
-
+  //   return total;
+  // }
+double get totalPrice => CartService().total;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,7 +162,7 @@ class _CartViewState extends State<CartView> {
                                   GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        cartItems.removeAt(index);
+                                        CartService().removeItem(index);
                                       });
                                     },
 

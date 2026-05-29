@@ -1,92 +1,8 @@
 import 'dart:async';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart' as lang;
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-
-class OrderSuccessView extends StatefulWidget {
-  const OrderSuccessView({super.key});
-
-  @override
-  State<OrderSuccessView> createState() => _OrderSuccessViewState();
-}
-
-class _OrderSuccessViewState extends State<OrderSuccessView> {
-  @override
-  void initState() {
-    super.initState();
-
-    // بعد 5 ثواني ترجع تلقائياً
-    Timer(const Duration(seconds: 5), () {
-      if (mounted) {
-        Navigator.pop(context);
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xff13245B),
-
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // دائرة النجاح
-            Container(
-              height: 120,
-              width: 120,
-
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: const Color(0xff5CC15A),
-
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0xff5CC15A).withOpacity(0.5),
-                    blurRadius: 25,
-                    spreadRadius: 5,
-                  ),
-                ],
-              ),
-
-              child: const Icon(
-                Icons.check_rounded,
-                color: Colors.white,
-                size: 70,
-              ),
-            ),
-
-            const SizedBox(height: 35),
-
-            // النص الرئيسي
-            const Text(
-              "Order Placed!",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 38,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            const SizedBox(height: 15),
-
-            // النص الفرعي
-            const Text(
-              "Your order has been successfully placed",
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white70, fontSize: 18),
-            ),
-
-            const SizedBox(height: 50),
-
-            // لودينغ صغير
-            const CircularProgressIndicator(color: Colors.white),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -106,101 +22,98 @@ class ProfileView extends StatelessWidget {
               // =========================
               // USER CARD
               // =========================
-              Container(
-                padding: const EdgeInsets.all(18),
+              // Container(
+              //   padding: const EdgeInsets.all(18),
 
-                decoration: BoxDecoration(
-                  color: const Color(0xff24386F),
-                  borderRadius: BorderRadius.circular(22),
+              //   decoration: BoxDecoration(
+              //     color: const Color(0xff24386F),
+              //     borderRadius: BorderRadius.circular(22),
 
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      blurRadius: 15,
-                      offset: const Offset(0, 6),
-                    ),
-                  ],
-                ),
+              //     boxShadow: [
+              //       BoxShadow(
+              //         color: Colors.black.withOpacity(0.2),
+              //         blurRadius: 15,
+              //         offset: const Offset(0, 6),
+              //       ),
+              //     ],
+              //   ),
 
-                child: Row(
-                  children: [
-                    Container(
-                      height: 65,
-                      width: 65,
+              // child: Row(
+              // children: [
+              // Container(
+              //   height: 65,
+              //   width: 65,
 
-                      decoration: BoxDecoration(
-                        color: const Color(0xffFF7A30),
-                        borderRadius: BorderRadius.circular(18),
-                      ),
+              //   decoration: BoxDecoration(
+              //     color: const Color(0xffFF7A30),
+              //     borderRadius: BorderRadius.circular(18),
+              //   ),
 
-                      child: const Icon(
-                        Icons.person_outline,
-                        color: Colors.white,
-                        size: 35,
-                      ),
-                    ),
+              //   child: const Icon(
+              //     Icons.person_outline,
+              //     color: Colors.white,
+              //     size: 35,
+              //   ),
+              // ),
 
-                    const Gap(15),
+              // const Gap(15),
 
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "John Warrior",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+              // Expanded(
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       const Text(
+              //         "John Warrior",
+              //         style: TextStyle(
+              //           color: Colors.white,
+              //           fontSize: 22,
+              //           fontWeight: FontWeight.bold,
+              //         ),
+              //       ),
 
-                          const Gap(4),
+              //       const Gap(4),
 
-                          Text(
-                            "john.warrior@email.com",
-                            style: TextStyle(
-                              color: Colors.white.withOpacity(0.7),
-                              fontSize: 14,
-                            ),
-                          ),
+              //       Text(
+              //         "john.warrior@email.com",
+              //         style: TextStyle(
+              //           color: Colors.white.withOpacity(0.7),
+              //           fontSize: 14,
+              //         ),
+              //       ),
 
-                          const Gap(10),
+              //       const Gap(10),
 
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 6,
-                            ),
+              //       Container(
+              //         padding: const EdgeInsets.symmetric(
+              //           horizontal: 12,
+              //           vertical: 6,
+              //         ),
 
-                            decoration: BoxDecoration(
-                              color: const Color(0xffFF7A30),
-                              borderRadius: BorderRadius.circular(30),
-                            ),
+              //         decoration: BoxDecoration(
+              //           color: const Color(0xffFF7A30),
+              //           borderRadius: BorderRadius.circular(30),
+              //         ),
 
-                            child: const Text(
-                              "PRO",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    const Icon(
-                      Icons.settings_outlined,
-                      color: Color(0xffFF7A30),
-                    ),
-                  ],
-                ),
-              ),
-
-              const Gap(30),
-
+              //         child: const Text(
+              //           "PRO",
+              //           style: TextStyle(
+              //             color: Colors.white,
+              //             fontWeight: FontWeight.bold,
+              //             fontSize: 12,
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              //   const Icon(
+              //     Icons.settings_outlined,
+              //     color: Color(0xffFF7A30),
+              //   ),
+              // ],
+              // ),
+              // ),
+              // const Gap(30),
               const Text(
                 "Your Progress",
                 style: TextStyle(
@@ -255,88 +168,106 @@ class ProfileView extends StatelessWidget {
               // =========================
               // PRO MEMBERSHIP
               // =========================
-              Container(
-                padding: const EdgeInsets.all(20),
+              // Container(
+              //   padding: const EdgeInsets.all(20),
 
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(22),
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(22),
 
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.purple.withOpacity(0.35),
-                      Colors.orange.withOpacity(0.25),
-                    ],
-                  ),
+              //     gradient: LinearGradient(
+              //       colors: [
+              //         Colors.purple.withOpacity(0.35),
+              //         Colors.orange.withOpacity(0.25),
+              //       ],
+              //     ),
 
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.15),
-                      blurRadius: 15,
-                      offset: const Offset(0, 5),
-                    ),
-                  ],
-                ),
+              //     boxShadow: [
+              //       BoxShadow(
+              //         color: Colors.black.withOpacity(0.15),
+              //         blurRadius: 15,
+              //         offset: const Offset(0, 5),
+              //       ),
+              //     ],
+              //   ),
 
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.workspace_premium_outlined,
-                      color: Colors.orange,
-                    ),
+              //   child: Row(
+              //     children: [
+              //       const Icon(
+              //         Icons.workspace_premium_outlined,
+              //         color: Colors.orange,
+              //       ),
 
-                    const Gap(12),
+              //       const Gap(12),
 
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "Pro Membership",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
+              //       Expanded(
+              //         child: Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: const [
+              //             Text(
+              //               "Pro Membership",
+              //               style: TextStyle(
+              //                 color: Colors.white,
+              //                 fontWeight: FontWeight.bold,
+              //                 fontSize: 18,
+              //               ),
+              //             ),
 
-                          Gap(5),
+              //             Gap(5),
 
-                          Text(
-                            "Active until March 16, 2027",
-                            style: TextStyle(color: Colors.white70),
-                          ),
-                        ],
-                      ),
-                    ),
+              //             Text(
+              //               "Active until March 16, 2027",
+              //               style: TextStyle(color: Colors.white70),
+              //             ),
+              //           ],
+              //         ),
+              //       ),
 
-                    const Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Colors.orange,
-                      size: 18,
-                    ),
-                  ],
-                ),
-              ),
-
+              //       const Icon(
+              //         Icons.arrow_forward_ios_rounded,
+              //         color: Colors.orange,
+              //         size: 18,
+              //       ),
+              //     ],
+              //   ),
+              // ),
               const Gap(25),
 
               // =========================
               // MENU ITEMS
               // =========================
-              _buildMenuItem(
-                icon: Icons.workspace_premium_outlined,
-                title: "Subscription",
-                trailing: _buildProBadge(),
-              ),
-
-              _buildMenuItem(icon: Icons.trending_up, title: "Progress Stats"),
-
+              // _buildMenuItem(
+              //   icon: Icons.workspace_premium_outlined,
+              //   title: "Subscription",
+              //   trailing: _buildProBadge(),
+              // ),
+              // _buildMenuItem(icon: Icons.trending_up, title: "Progress Stats"),
               _buildMenuItem(
                 icon: Icons.inventory_2_outlined,
-                title: "Order History",
+                title: "Order_History".tr(),
+                onTap: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => OrderHistoryView()),
+                  // );
+                },
               ),
 
-              _buildMenuItem(icon: Icons.settings_outlined, title: "Settings"),
+              _buildMenuItem(
+                icon: Icons.color_lens,
+                title: "Thems",
+                onTap: () {},
+              ),
+              _buildMenuItem(
+                icon: Icons.language,
+                title: "lang".tr(),
+                onTap: () {
+                  if (context.locale.languageCode == 'en') {
+                    context.setLocale(const Locale('ar'));
+                  } else {
+                    context.setLocale(const Locale('en'));
+                  }
+                },
+              ),
               const Gap(30),
 
               // =========================
@@ -345,7 +276,8 @@ class ProfileView extends StatelessWidget {
               Container(
                 height: 70,
                 decoration: BoxDecoration(
-                  color: const Color(0xff24386F),
+                  // color: const Color(0xff24386F),
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(20),
 
                   boxShadow: [
@@ -454,60 +386,64 @@ class ProfileView extends StatelessWidget {
     required IconData icon,
     required String title,
     Widget? trailing,
+    final Function()? onTap,
   }) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 15),
 
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 20),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 20),
 
-        decoration: BoxDecoration(
-          color: const Color(0xff24386F),
-          borderRadius: BorderRadius.circular(20),
+          decoration: BoxDecoration(
+            color: const Color(0xff24386F),
+            borderRadius: BorderRadius.circular(20),
 
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.15),
-              blurRadius: 10,
-              offset: const Offset(0, 5),
-            ),
-          ],
-        ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.15),
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
 
-        child: Row(
-          children: [
-            Container(
-              height: 45,
-              width: 45,
+          child: Row(
+            children: [
+              Container(
+                height: 45,
+                width: 45,
 
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.05),
-                borderRadius: BorderRadius.circular(14),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.05),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+
+                child: Icon(icon, color: Colors.white70),
               ),
 
-              child: Icon(icon, color: Colors.white70),
-            ),
+              const Gap(15),
 
-            const Gap(15),
-
-            Expanded(
-              child: Text(
-                title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 17,
+              Expanded(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 17,
+                  ),
                 ),
               ),
-            ),
 
-            trailing ??
-                const Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  color: Colors.white38,
-                  size: 18,
-                ),
-          ],
+              trailing ??
+                  const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: Colors.white38,
+                    size: 18,
+                  ),
+            ],
+          ),
         ),
       ),
     );
@@ -517,14 +453,14 @@ class ProfileView extends StatelessWidget {
   // PRO BADGE
   // =========================
 
-  Widget _buildProBadge() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+  // Widget _buildProBadge() {
+  //   return Container(
+  //     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
 
-      decoration: BoxDecoration(
-        color: const Color(0xffFF7A30),
-        borderRadius: BorderRadius.circular(30),
-      ),
-    );
-  }
+  //     decoration: BoxDecoration(
+  //       color: const Color(0xffFF7A30),
+  //       borderRadius: BorderRadius.circular(30),
+  //     ),
+  //   );
+  // }
 }

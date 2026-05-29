@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:octafitpro/core/global/color/app_colors_dark.dart';
+import 'package:octafitpro/features/auth/data/api_server.dart';
+import 'package:octafitpro/features/auth/view/login_view.dart';
 import 'package:octafitpro/features/auth/widget/custom_input_auth.dart';
+import 'package:octafitpro/root.dart';
 import 'package:octafitpro/shared/custom_button.dart';
 import 'package:octafitpro/shared/custom_text.dart';
 import 'package:octafitpro/shared/custom_txtfield.dart';
@@ -37,7 +40,7 @@ class SinupView extends StatelessWidget {
                   text: "Sign in to continue your journey",
                   color: Color(0xffc7cbd9),
                 ),
-                Gap(100),
+                Gap(5),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -45,20 +48,20 @@ class SinupView extends StatelessWidget {
                     Gap(7),
                     CustomTxtfield(
                       iconperfex: Icon(Icons.person_2_outlined),
-                      hint: "Amjad and Adib ",
+                      hint: "Name ... ",
                       isPassword: false,
                       controller: fullnameController,
                     ),
                   ],
                 ),
-                Gap(40),
+                Gap(20),
                 CustomInputAuth(
                   lable: "Email",
                   text: "your.email@octafitcom",
                   ispassword: false,
                   controller: emailController,
                 ),
-                Gap(40),
+                Gap(20),
                 CustomInputAuth(
                   lable: "password",
                   text: "Create a strong password",
@@ -66,8 +69,41 @@ class SinupView extends StatelessWidget {
                   controller: passwordController,
                 ),
 
-                Gap(50),
-                CustomButton(text: "Create Account ", color: Color(0xffff7a3c)),
+                Gap(25),
+                CustomButton(
+                  text: "Create Account ",
+                  color: Color(0xffff7a3c),
+                  onTap: () async {
+                    if (formKey.currentState!.validate()) {
+                      try {
+                        final response = await AuthService().register(
+                          name: fullnameController.text,
+                          email: emailController.text,
+                          password: passwordController.text,
+                        );
+
+                        print(response);
+
+                        // ScaffoldMessenger.of(context).showSnackBar(
+                        //   SnackBar(
+                        //     content: Text("Account Created Successfully"),
+                        //   ),
+
+                        return Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Root()),
+                        );
+                      } catch (e) {
+                        print(e);
+
+                        ScaffoldMessenger.of(
+                          context,
+                        ).showSnackBar(SnackBar(content: Text("حدث خطأ")));
+                      }
+                    }
+                  },
+                ),
+
                 Gap(25),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -77,7 +113,12 @@ class SinupView extends StatelessWidget {
                       color: Color(0xffc7cbd9),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginView()),
+                        );
+                      },
                       child: CustomText(
                         text: "Sign In ",
                         color: Color(0xffff7a3c),

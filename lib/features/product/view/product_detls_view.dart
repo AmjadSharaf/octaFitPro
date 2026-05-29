@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import 'package:octafitpro/core/global/color/app_colors_dark.dart';
+import 'package:octafitpro/features/cart/server/cart_service.dart';
 import 'package:octafitpro/features/chat_bot/view/chat_bot.dart';
 import 'package:octafitpro/features/product/view/widget/area_contaenar_prudect.dart';
 import 'package:octafitpro/features/product/view/widget/area_det_proudact.dart';
@@ -186,7 +188,18 @@ class _ProductDetlsViewState extends State<ProductDetlsView> {
                 widget: Icon(Icons.shopping_cart_outlined, color: Colors.white),
                 text: "Add to Cart",
                 color: Colors.orange,
-                onTap: () {},
+                onTap: () {
+                  CartService().addItem({
+                    "title": "Premium Whey Protein",
+                    "price": 49.99,
+                    "image":
+                        "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f",
+                  });
+
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(SnackBar(content: Text("Added to cart".tr())));
+                },
                 radius: 10,
                 gap: 5,
               ),

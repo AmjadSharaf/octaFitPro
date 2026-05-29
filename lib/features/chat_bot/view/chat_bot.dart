@@ -102,6 +102,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:octafitpro/core/global/color/app_colors_dark.dart';
+import 'package:octafitpro/shared/custom_text.dart';
 
 class ChatBotScreen extends StatefulWidget {
   const ChatBotScreen({super.key});
@@ -230,14 +232,17 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColorsDark.primaryColor,
       appBar: AppBar(
-        title: const Text('المساعد الرياضي'),
+        title: CustomText(text: "المساعد الرياضي ", color: Colors.white),
         centerTitle: true,
+        backgroundColor: AppColorsDark.primaryColor,
         elevation: 0,
         actions: [
           IconButton(
             icon: const Icon(Icons.delete_outline),
             onPressed: _clearChat,
+            color: Colors.white,
             tooltip: 'مسح المحادثة',
           ),
         ],
@@ -307,7 +312,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
-              color: Colors.grey[200],
+              color: Colors.blue,
               borderRadius: BorderRadius.circular(20),
             ),
             child: const Row(
@@ -337,7 +342,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColorsDark.primaryColor,
         boxShadow: [
           BoxShadow(
             offset: const Offset(0, -2),
@@ -370,7 +375,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
           ),
           const SizedBox(width: 8),
           CircleAvatar(
-            backgroundColor: Colors.blue,
+            backgroundColor: const Color.fromARGB(255, 17, 55, 121),
             child: IconButton(
               icon: const Icon(Icons.send, color: Colors.white, size: 20),
               onPressed: _sendMessage,
