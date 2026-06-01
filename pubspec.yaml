@@ -42,6 +42,8 @@ dependencies:
   google_generative_ai: ^0.4.3
   shared_preferences: ^2.5.5
   easy_localization: ^3.0.7
+  video_player: ^2.11.1
+  chewie: ^1.14.1
   
   
   

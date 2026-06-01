@@ -3,8 +3,7 @@ import 'dart:ui';
 import 'package:gap/gap.dart';
 import 'package:octafitpro/core/global/color/app_colors_dark.dart';
 import 'package:octafitpro/features/home/widget/fitness_card.dart';
-
-
+import 'package:octafitpro/features/training/view/video.dart';
 
 import 'package:octafitpro/features/training/widget/user_header.dart';
 
@@ -99,12 +98,12 @@ class _HomeViewState extends State<TrainingView> {
                             '  Build muscle mass and sculpt your physique with targeted strength training exercises',
                         imageUrl: 'assets/test/body.jpg',
                         onTap: () {
-                          // Navigator.push(
-                          // context,
-                          // MaterialPageRoute(
-                          // builder: (context) => const VideosPage(),
-                          // ),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const VideosPage(),
+                            ),
+                          );
                         },
                       ),
                       Gap(15),
@@ -113,7 +112,14 @@ class _HomeViewState extends State<TrainingView> {
                         description:
                             'Bodyweight training using bars, rings, and floor exercises build raw strength, mobility, and control through progressive movements from pull ups to human flag.',
                         imageUrl: 'assets/test/cal.jpg',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const VideosPage(),
+                            ),
+                          );
+                        },
                       ),
                       Gap(15),
                       FitnessCard(
@@ -121,7 +127,14 @@ class _HomeViewState extends State<TrainingView> {
                         description:
                             'High energy combat sport combining punches and kicks for cardio and full body ',
                         imageUrl: 'assets/test/Kick.jpg',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const VideosPage(),
+                            ),
+                          );
+                        },
                       ),
                       Gap(15),
 
@@ -130,7 +143,14 @@ class _HomeViewState extends State<TrainingView> {
                         description:
                             'No equipment needed effective exercises you can do anywhere to stay fit and active.',
                         imageUrl: 'assets/test/boxing.jpg',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const VideosPage(),
+                            ),
+                          );
+                        },
                       ),
                       Gap(15),
                       FitnessCard(
@@ -138,7 +158,14 @@ class _HomeViewState extends State<TrainingView> {
                         description:
                             'The art of eight limbs master strikes using fists, elbows, knees, and shins for power and agility',
                         imageUrl: 'assets/test/muay.jpg',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const VideosPage(),
+                            ),
+                          );
+                        },
                       ),
                       Gap(15),
                       FitnessCard(
@@ -146,7 +173,14 @@ class _HomeViewState extends State<TrainingView> {
                         description:
                             'No equipment needed effective exercises you can do anywhere to stay fit and active.',
                         imageUrl: 'assets/test/home.jpg',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const VideosPage(),
+                            ),
+                          );
+                        },
                       ),
 
                       Gap(20),

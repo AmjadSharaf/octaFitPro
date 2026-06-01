@@ -2,6 +2,22 @@
   "add_to_cart": "Add to Cart",
   "checkout": "Checkout",
     "lang" : "Language",
-    "Order_History"  : "Order History"
+    "Order_History"  : "Order History",
+    "welcom_back_Champion" : "Welcome back Champion",
+    "Mixed_Martial_Art" : "Mixed Martial Art",
+    "seeAll" : "See All",
+    "Muay_thai_Training": "Muay thai Training",
+    "the_art" : "The art of eight limbs master strikes using fists, elbows, knees, and shins for power and agility",
+    "Kick_boxing" : "Kick boxing",
+    "high_energy" : "High energy combat sport combining punches and kicks for cardio and full body",
+    "fitness" : "Fitness",
+    "Training" : "Training",
+    "Body_Balance" : "Body Balance"
+    
+    
+    
+  
+    
+
 
 }

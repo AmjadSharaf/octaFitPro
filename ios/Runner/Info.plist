@@ -4,11 +4,11 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<!-- <key>NSAppTransportSecurity</key>
+	<key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
     <true/>
-</dict> -->
+</dict>
 	<key>CFBundleDisplayName</key>
 	<string>Octafitpro</string>
 	<key>CFBundleExecutable</key>

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:octafitpro/shared/custom_text.dart';
 
@@ -19,9 +20,9 @@ class UserHederHome extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
-            
+
             CustomText(
-              text: " Welcome back Champion",
+              text: "welcom_back_Champion".tr(),
               color: Colors.white70,
 
               size: 16,
