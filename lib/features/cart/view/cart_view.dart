@@ -13,38 +13,9 @@ class CartView extends StatefulWidget {
 }
 
 class _CartViewState extends State<CartView> {
-  // List cartItems = [
-    // {
-    //   "title": "Premium Whey Protein",
-    //   "price": 49.99,
-    //   "qty": 2,
-    //   "image": "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f",
-    // },
-
-    // {
-    //   "title": "Boxing Gloves Pro",
-    //   "price": 89.99,
-    //   "qty": 1,
-    //   "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
-    // },
-
-    // {
-    //   "title": "Resistance Bands Set",
-    //   "price": 29.99,
-    //   "qty": 1,
-    //   "image": "https://images.unsplash.com/photo-1518611012118-696072aa579a",
-    // },
-  // ];
+ 
 final cartItems = CartService().items;
-  // double get totalPrice {
-  //   double total = 0;
-
-  //   for (var item in cartItems) {
-  //     total += item["price"] * item["qty"];
-  //   }
-
-  //   return total;
-  // }
+  
 double get totalPrice => CartService().total;
   @override
   Widget build(BuildContext context) {
@@ -97,13 +68,13 @@ double get totalPrice => CartService().total;
 
                             gradient: LinearGradient(
                               colors: [
-                                const Color(0xff24386f).withOpacity(0.9),
-                                const Color(0xff314c99).withOpacity(0.9),
+                                const Color(0xff24386f),
+                                const Color(0xff314c99),
                               ],
                             ),
 
                             border: Border.all(
-                              color: Colors.white.withOpacity(0.08),
+                              color: Colors.white,
                             ),
                           ),
 
@@ -143,7 +114,7 @@ double get totalPrice => CartService().total;
                                     ),
 
                                     const Gap(10),
-
+                                  
                                     Text(
                                       "\$${item["price"]}",
                                       style: const TextStyle(
@@ -263,7 +234,7 @@ double get totalPrice => CartService().total;
               padding: const EdgeInsets.all(20),
 
               decoration: BoxDecoration(
-                color: const Color(0xff172a5a).withOpacity(0.95),
+                color: const Color(0xff172a5a),
 
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(35),
@@ -279,7 +250,7 @@ double get totalPrice => CartService().total;
 
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.white.withOpacity(0.06),
+                      color: Colors.white,
                     ),
 
                     child: Row(

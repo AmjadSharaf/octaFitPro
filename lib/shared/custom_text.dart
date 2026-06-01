@@ -4,21 +4,24 @@ class CustomText extends StatelessWidget {
   const CustomText({
     super.key,
     required this.text,
-     this.color,
-     this.fontWeight,
-     this.size, 
+    this.color,
+    this.fontWeight,
+    this.size,
+    this.maxline,
   });
   final String text;
   final Color? color;
   final FontWeight? fontWeight;
   final double? size;
+  final int? maxline;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      maxLines: maxline,
 
-      style: TextStyle( fontSize: size, fontWeight: fontWeight, color: color),
+      style: TextStyle(fontSize: size, fontWeight: fontWeight, color: color),
     );
   }
 }

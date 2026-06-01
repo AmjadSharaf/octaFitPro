@@ -5,15 +5,17 @@ import 'package:gap/gap.dart';
 import 'package:octafitpro/core/global/color/app_colors_dark.dart';
 import 'package:octafitpro/features/cart/server/cart_service.dart';
 import 'package:octafitpro/features/chat_bot/view/chat_bot.dart';
-import 'package:octafitpro/features/product/view/widget/area_contaenar_prudect.dart';
+
 import 'package:octafitpro/features/product/view/widget/area_det_proudact.dart';
-import 'package:octafitpro/shared/custom_button.dart';
+import 'package:octafitpro/features/store/data/product_mode.dart';
+
 import 'package:octafitpro/shared/custom_button_add.dart';
 
 import 'package:octafitpro/shared/custom_text.dart';
 
 class ProductDetlsView extends StatefulWidget {
-  const ProductDetlsView({super.key});
+  const ProductDetlsView({super.key, required this.product});
+  final ProductModel product;
 
   @override
   State<ProductDetlsView> createState() => _ProductDetlsViewState();
@@ -21,6 +23,7 @@ class ProductDetlsView extends StatefulWidget {
 
 class _ProductDetlsViewState extends State<ProductDetlsView> {
   double value = 1;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColorsDark.primaryColor,
@@ -75,34 +78,26 @@ class _ProductDetlsViewState extends State<ProductDetlsView> {
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.grey[700],
                 ),
-                child: Image.asset("assets/test/test.jpg"),
+                child: Image.network(widget.product.image, fit: BoxFit.cover),
               ),
               Gap(20),
               CustomText(
-                text: "Premium Whey Protein",
+                text: widget.product.name,
                 color: Colors.white,
                 size: 30,
                 fontWeight: FontWeight.bold,
               ),
               Gap(15),
-              Row(
-                children: [
-                  Icon(Icons.star, color: Colors.orange),
-                  Gap(5),
-                  CustomText(text: "4.5", color: Colors.white),
-                ],
-              ),
-              Gap(15),
+
               CustomText(
-                text: "\$ 49.99",
+                text: widget.product.price,
                 color: Colors.orange,
                 size: 22,
                 fontWeight: FontWeight.bold,
               ),
               Gap(15),
               CustomText(
-                text:
-                    "High-quality whey protein isolate designed for maximum muscle growth and recovery. Each serving provides 25g of pure protein with minimal carbs and fats",
+                text: widget.product.description,
                 color: Colors.white,
                 size: 14,
                 fontWeight: FontWeight.bold,
@@ -141,60 +136,21 @@ class _ProductDetlsViewState extends State<ProductDetlsView> {
                   ],
                 ),
               ),
-              Gap(12),
-              CustomText(
-                text: "Select Flavor",
-                color: Colors.white,
-                size: 22,
-                fontWeight: FontWeight.bold,
-              ),
-              Gap(12),
-
-              Gap(12),
-              CustomText(
-                text: "Select Size",
-                color: Colors.white,
-                size: 22,
-                fontWeight: FontWeight.bold,
-              ),
-              Gap(12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomText(
-                    text: "Customer Reviews",
-                    color: Colors.white,
-                    size: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  CustomText(
-                    text: "See All ",
-                    color: Colors.orange,
-                    size: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ],
-              ),
-              Gap(10),
-              AreaContaenarPrudect(
-                count: 5,
-                subtitle:
-                    "Best protein I've ever used! Great taste and mixes well.",
-                title: "Alex Johnson",
-              ),
-              Gap(10),
-
               CustomButtonAdd(
                 widget: Icon(Icons.shopping_cart_outlined, color: Colors.white),
                 text: "Add to Cart",
                 color: Colors.orange,
                 onTap: () {
-                  CartService().addItem({
-                    "title": "Premium Whey Protein",
-                    "price": 49.99,
-                    "image":
-                        "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f",
-                  });
+                  // CartService().addItem({
+                  //   "title": widget.product.name.toString(),
+                  //   "price": widget.product.price.toString().replaceAll(
+                  //     "\$",
+                  //     "",
+                  //   ),
+                  //   "image": widget.product.image.toString(),
+                  // });
+
+                  CartService().addItem(widget.product.toCartMap());
 
                   ScaffoldMessenger.of(
                     context,

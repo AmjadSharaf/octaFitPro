@@ -43,6 +43,8 @@ dependencies:
   shared_preferences: ^2.5.5
   easy_localization: ^3.0.7
   
+  
+  
     
       
 
@@ -72,8 +74,18 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/logo/
+  #  - assets/videos/video1.mp4
+  #  - assets/videos/video2.mp4
    - assets/splash/splash.svg
    - assets/test/test.jpg
+   - assets/test/body.jpg
+   - assets/test/boxing.jpg
+   - assets/test/home.jpg
+   - assets/test/Kick.jpg
+   - assets/test/cal.jpg
+   - assets/test/cc.jpg
+   - assets/test/kk.jpg
+   - assets/test/muay.jpg
    - assets/translations/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

@@ -37,7 +37,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    bool isDark = false;
+    // bool isDark = false;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // Light Theme

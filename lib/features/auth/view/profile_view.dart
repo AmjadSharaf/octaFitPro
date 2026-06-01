@@ -1,4 +1,4 @@
-import 'dart:async';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/easy_localization.dart' as lang;
 import 'package:flutter/material.dart';
@@ -282,7 +282,7 @@ class ProfileView extends StatelessWidget {
 
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.15),
+                      color: Colors.black,
                       blurRadius: 12,
                       offset: const Offset(0, 5),
                     ),
@@ -337,7 +337,7 @@ class ProfileView extends StatelessWidget {
 
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.15),
+            color: Colors.black,
             blurRadius: 12,
             offset: const Offset(0, 5),
           ),
@@ -352,7 +352,7 @@ class ProfileView extends StatelessWidget {
             width: 50,
 
             decoration: BoxDecoration(
-              color: iconColor.withOpacity(0.2),
+              color: iconColor,
               borderRadius: BorderRadius.circular(15),
             ),
 

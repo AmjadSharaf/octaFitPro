@@ -6,17 +6,13 @@ class CartService {
   final List<Map<String, dynamic>> items = [];
 
   void addItem(Map<String, dynamic> product) {
-    final index = items.indexWhere(
-      (item) => item["title"] == product["title"],
-    );
+    final index = items.indexWhere((item) => item["title"] == product["title"]);
 
     if (index != -1) {
-      items[index]["qty"] += 1;
+      // items[index]["qty"] += 1;
+      items[index]["qty"] = (items[index]["qty"] ?? 1) + 1;
     } else {
-      items.add({
-        ...product,
-        "qty": 1,
-      });
+      items.add({...product, "qty": 1});
     }
   }
 

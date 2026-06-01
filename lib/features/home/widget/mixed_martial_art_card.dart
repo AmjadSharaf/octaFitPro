@@ -57,6 +57,7 @@ class MixedMartialArtCard extends StatelessWidget {
                 ),
                 Gap(10),
                 Text(
+                  maxLines: 2,
                   description,
                   style: TextStyle(color: Colors.white70, fontSize: 14),
                 ),

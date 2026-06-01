@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:gap/gap.dart';
 import 'package:octafitpro/core/global/color/app_colors_dark.dart';
-import 'package:octafitpro/features/store/widget/FoodCategory.dart';
-import 'package:octafitpro/features/store/widget/card_item.dart';
+import 'package:octafitpro/features/home/widget/fitness_card.dart';
+
+
+
 import 'package:octafitpro/features/training/widget/user_header.dart';
 
 class TrainingView extends StatefulWidget {
@@ -14,26 +16,17 @@ class TrainingView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<TrainingView> {
-  List category = ["All", "MMA", "BodyBuilding ", "Home Workout"];
+  // List category = ["All", "MMA", "BodyBuilding ", "Home Workout"];
   int selectedIndex = 0;
 
-  final List allTraining = [
-    {"title": "MMA Striking Masterclass", "category": "MMA"},
-    {"title": "BodyBuilding Workout", "category": "BodyBuilding"},
-    {"title": "Home Workout Beginner", "category": "Home Workout"},
-  ];
+  final List allTraining = [];
 
   @override
   Widget build(BuildContext context) {
     List filteredTraining;
 
-    if (selectedIndex == 0) {
-      filteredTraining = allTraining;
-    } else {
-      filteredTraining = allTraining.where((item) {
-        return item["category"] == category[selectedIndex];
-      }).toList();
-    }
+    filteredTraining = allTraining;
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
 
@@ -100,17 +93,63 @@ class _HomeViewState extends State<TrainingView> {
 
                   child: Column(
                     children: [
-                      // SearchField(),
-                      Gap(20),
-                      FoodCategory(
-                        selectedIndex: selectedIndex,
-                        category: category,
-                        onTap: (index) {
-                          setState(() {
-                            selectedIndex = index;
-                          });
+                      FitnessCard(
+                        title: 'BodyBuilding ',
+                        description:
+                            '  Build muscle mass and sculpt your physique with targeted strength training exercises',
+                        imageUrl: 'assets/test/body.jpg',
+                        onTap: () {
+                          // Navigator.push(
+                          // context,
+                          // MaterialPageRoute(
+                          // builder: (context) => const VideosPage(),
+                          // ),
+                          // );
                         },
                       ),
+                      Gap(15),
+                      FitnessCard(
+                        title: 'Calisthenics ',
+                        description:
+                            'Bodyweight training using bars, rings, and floor exercises build raw strength, mobility, and control through progressive movements from pull ups to human flag.',
+                        imageUrl: 'assets/test/cal.jpg',
+                        onTap: () {},
+                      ),
+                      Gap(15),
+                      FitnessCard(
+                        title: 'Kick boxing ',
+                        description:
+                            'High energy combat sport combining punches and kicks for cardio and full body ',
+                        imageUrl: 'assets/test/Kick.jpg',
+                        onTap: () {},
+                      ),
+                      Gap(15),
+
+                      FitnessCard(
+                        title: 'boxing',
+                        description:
+                            'No equipment needed effective exercises you can do anywhere to stay fit and active.',
+                        imageUrl: 'assets/test/boxing.jpg',
+                        onTap: () {},
+                      ),
+                      Gap(15),
+                      FitnessCard(
+                        title: 'Muay Thai ',
+                        description:
+                            'The art of eight limbs master strikes using fists, elbows, knees, and shins for power and agility',
+                        imageUrl: 'assets/test/muay.jpg',
+                        onTap: () {},
+                      ),
+                      Gap(15),
+                      FitnessCard(
+                        title: 'Home Workout',
+                        description:
+                            'No equipment needed effective exercises you can do anywhere to stay fit and active.',
+                        imageUrl: 'assets/test/home.jpg',
+                        onTap: () {},
+                      ),
+
+                      Gap(20),
                     ],
                   ),
                 ),
@@ -120,11 +159,9 @@ class _HomeViewState extends State<TrainingView> {
                 padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
                 sliver: SliverList(
                   delegate: SliverChildBuilderDelegate(
-                    childCount: filteredTraining
-                        .length, // عدد التمارين القادمة من الباك اند
+                    childCount: filteredTraining.length,
 
                     (context, index) {
-                      // بيانات وهمية حاليا - لاحقاً من API
                       final training = filteredTraining[index];
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 15),

@@ -58,23 +58,25 @@ class _LoginViewState extends State<LoginView> {
         //   SnackBar(content: Text('Welcome ${loginModel.user.name}')),
         // );
         Navigator.pushReplacement(
+          // ignore: use_build_context_synchronously
           context,
           MaterialPageRoute(builder: (context) => const Root()),
         );
 
-        print(loginModel.token);
+        // print(loginModel.token);
       } on DioException catch (e) {
         setState(() {
           isLoading = false;
         });
 
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(e.response?.data['message'] ?? 'Login Failed'),
           ),
         );
 
-        print(e.response?.data);
+        // print(e.response?.data);
       }
     }
   }

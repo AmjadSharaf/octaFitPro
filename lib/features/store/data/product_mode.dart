@@ -2,18 +2,13 @@ class ProductResponse {
   final bool status;
   final List<ProductModel> data;
 
-  ProductResponse({
-    required this.status,
-    required this.data,
-  });
+  ProductResponse({required this.status, required this.data});
 
   factory ProductResponse.fromJson(Map<String, dynamic> json) {
     return ProductResponse(
       status: json['status'],
       data: List<ProductModel>.from(
-        json['data'].map(
-          (x) => ProductModel.fromJson(x),
-        ),
+        json['data'].map((x) => ProductModel.fromJson(x)),
       ),
     );
   }
@@ -42,5 +37,9 @@ class ProductModel {
       image: json['image'],
       price: json['price'],
     );
+  }
+
+  Map<String, dynamic> toCartMap() {
+    return {"title": name, "price": price, "image": image};
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class messages_send extends StatelessWidget {
-  const messages_send({
+class MessageSend extends StatelessWidget {
+  const MessageSend({
     super.key,
     required this.sizeWi,
     required this.chatController,

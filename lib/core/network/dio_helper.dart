@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class DioHelper {
   static late Dio dio;
 
-  static init() {
+  static void init() {
     dio = Dio(
       BaseOptions(
         baseUrl: 'http://127.0.0.1:8000/api/',
